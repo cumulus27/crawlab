@@ -20,6 +20,8 @@ else
 fi
 
 # start nginx
+# shellcheck disable=SC2230
+which nginx
 /usr/sbin/nginx -s start
 
 # install languages
