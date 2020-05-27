@@ -1,7 +1,7 @@
-version: '3.3'
+version: '1.0'
 services:
   master: 
-    image: tikazyq/crawlab:latest
+    image: crawlab-local:latest
     container_name: master
     environment:
       # CRAWLAB_API_ADDRESS: "https://<your_api_ip>:<your_api_port>"  # backend API address 后端 API 地址. 适用于 https 或者源码部署
@@ -45,7 +45,7 @@ services:
     # volumes:
     #   - "/var/crawlab/log:/var/logs/crawlab" # log persistent 日志持久化
   worker:
-    image: tikazyq/crawlab:latest
+    image: crawlab-local:latest
     container_name: worker
     environment:
       CRAWLAB_SERVER_MASTER: "N"
