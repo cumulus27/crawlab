@@ -20,9 +20,7 @@ else
 fi
 
 # start nginx
-# shellcheck disable=SC2230
-which nginx
-/usr/sbin/nginx -s start
+nginx -s start
 
 # install languages
 if [ "${CRAWLAB_SERVER_LANG_NODE}" = "Y" ] || [ "${CRAWLAB_SERVER_LANG_JAVA}" = "Y" ];
