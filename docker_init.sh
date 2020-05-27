@@ -20,7 +20,7 @@ else
 fi
 
 # start nginx
-/usr/sbin/nginx -s reload
+service nginx start
 
 # install languages
 if [ "${CRAWLAB_SERVER_LANG_NODE}" = "Y" ] || [ "${CRAWLAB_SERVER_LANG_JAVA}" = "Y" ];
