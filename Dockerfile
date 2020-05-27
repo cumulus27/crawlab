@@ -21,7 +21,7 @@ RUN npm install -g yarn \
 RUN npm run build:prod
 
 # images
-FROM centos/nginx-110-centos7:latest
+FROM centos:centos7
 
 # set as non-interactive
 ENV DEBIAN_FRONTEND noninteractive
@@ -30,8 +30,9 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV CRAWLAB_IS_DOCKER Y
 
 # install packages
-RUN yum makecache fast \
-	&& yum install -y curl git net-tools iputils-ping ntp ntpdate python3 python3-pip wget \
+RUN chmod 777 /tmp \
+	&& yum makecache fast \
+	&& yum install -y curl git net-tools iputils-ping ntp ntpdate python3 python3-pip nginx wget \
 	&& ln -s /usr/bin/pip3 /usr/local/bin/pip \
 	&& ln -s /usr/bin/python3 /usr/local/bin/python
 
