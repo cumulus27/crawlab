@@ -21,7 +21,7 @@ RUN npm install -g yarn \
 RUN npm run build:prod
 
 # images
-FROM centos:centos8
+FROM centos:latest
 
 # set as non-interactive
 ENV DEBIAN_FRONTEND noninteractive
