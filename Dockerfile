@@ -8,14 +8,15 @@ ENV GOPROXY https://mirrors.aliyun.com/goproxy/
 
 RUN go install -v ./...
 
-FROM node:lts-alpine AS frontend-build
+FROM node:8.16.0-alpine AS frontend-build
 
 ADD ./frontend /app
 WORKDIR /app
 
 # install frontend
 RUN npm config set unsafe-perm true
-RUN npm install -g yarn && yarn install
+RUN npm install -g yarn \
+	&& yarn install --registry=https://registry.npm.taobao.org
 
 RUN npm run build:prod
 
