@@ -20,6 +20,7 @@ else
 fi
 
 # start nginx
+find / -name nginx
 service nginx restart
 
 # install languages
