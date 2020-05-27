@@ -4,7 +4,7 @@ touch /tmp/install.lock
 # lock
 touch /tmp/install-php.lock
 
-apt-get install -y php
+yum install -y php
 
 # unlock global
 rm /tmp/install.lock

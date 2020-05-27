@@ -7,9 +7,9 @@ touch /tmp/install.lock
 touch /tmp/install-java.lock
 
 # install java
-apt-get clean && \
-	apt-get update --fix-missing && \
-	apt-get install -y --fix-missing default-jdk
+yum makecache fast
+yum install java-1.8.0-openjdk-devel
+
 ln -s /usr/bin/java /usr/local/bin/java
 
 # unlock
