@@ -8,7 +8,7 @@ touch /tmp/install-java.lock
 
 # install java
 yum makecache fast
-yum install java-1.8.0-openjdk-devel
+yum install -y java-1.8.0-openjdk-devel
 
 ln -s /usr/bin/java /usr/local/bin/java
 
