@@ -1,4 +1,4 @@
-FROM golang:1.12-alpine AS build
+FROM golang:1.14.3-alpine AS build
 
 WORKDIR /go/src/app
 COPY . .
@@ -9,7 +9,7 @@ ENV GOPROXY https://mirrors.aliyun.com/goproxy/
 RUN go mod vendor
 RUN go install -v ./...
 
-FROM alpine:latest
+FROM centos:centos7
 WORKDIR /root
 COPY --from=build /go/src/app .
 COPY --from=build /go/bin/crawlab /usr/local/bin

@@ -1,10 +1,10 @@
-FROM golang:1.12 AS backend-build
+FROM golang:1.14.3-alpine AS backend-build
 
 WORKDIR /go/src/app
 COPY ./backend .
 
 ENV GO111MODULE on
-ENV GOPROXY https://goproxy.io
+ENV GOPROXY https://mirrors.aliyun.com/goproxy/
 
 RUN go install -v ./...
 
@@ -20,7 +20,7 @@ RUN npm install -g yarn && yarn install
 RUN npm run build:prod
 
 # images
-FROM ubuntu:latest
+FROM centos:centos7
 
 # set as non-interactive
 ENV DEBIAN_FRONTEND noninteractive
@@ -30,8 +30,8 @@ ENV CRAWLAB_IS_DOCKER Y
 
 # install packages
 RUN chmod 777 /tmp \
-	&& apt-get update \
-	&& apt-get install -y curl git net-tools iputils-ping ntp ntpdate python3 python3-pip nginx wget \
+	&& yum update \
+	&& yum install -y curl git net-tools iputils-ping ntp ntpdate python3 python3-pip nginx wget \
 	&& ln -s /usr/bin/pip3 /usr/local/bin/pip \
 	&& ln -s /usr/bin/python3 /usr/local/bin/python
 
