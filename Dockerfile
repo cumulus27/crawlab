@@ -13,6 +13,9 @@ FROM node:8.16.0-alpine AS frontend-build
 ADD ./frontend /app
 WORKDIR /app
 
+RUN yum makecache fast \
+    	&& yum install -y python2
+
 # install frontend
 RUN npm config set unsafe-perm true
 RUN npm install -g yarn && yarn install
