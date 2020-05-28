@@ -95,4 +95,4 @@ EXPOSE 8000
 
 # start backend
 #CMD ["/bin/bash", "/app/docker_init.sh"]
-CMD /usr/sbin/init
+CMD ["/usr/sbin/init"]
