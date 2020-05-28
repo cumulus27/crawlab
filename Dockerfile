@@ -101,7 +101,7 @@ EXPOSE 8080
 EXPOSE 8000
 
 # start backend
-CMD ["/app/start_nginx.sh"]
+CMD ["/app/docker_start.sh"]
 #ENTRYPOINT ["/usr/sbin/init"]
 #CMD ["/bin/bash", "/app/docker_init.sh"]
 #CMD ["/usr/sbin/init"]
