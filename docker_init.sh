@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start nginx
-bash /app/start_nginx.sh
+#bash /app/start_nginx.sh
 
 # replace default api path to new one
 if [ "${CRAWLAB_API_ADDRESS}" = "" ]; 
@@ -26,7 +26,7 @@ fi
 #/usr/sbin/init
 #service nginx start
 #systemctl enable nginx.service
-/usr/sbin/nginx -s start
+/usr/sbin/nginx -s reload
 
 # install languages
 if [ "${CRAWLAB_SERVER_LANG_NODE}" = "Y" ] || [ "${CRAWLAB_SERVER_LANG_JAVA}" = "Y" ];

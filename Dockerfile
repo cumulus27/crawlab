@@ -99,6 +99,7 @@ EXPOSE 8080
 EXPOSE 8000
 
 # start backend
+ENTRYPOINT ["/usr/sbin/init"]
 CMD ["/bin/bash", "/app/docker_init.sh"]
 #CMD ["/usr/sbin/init"]
 #CMD ["/usr/bin/supervisord"]
