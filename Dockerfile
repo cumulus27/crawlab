@@ -76,7 +76,7 @@ COPY ./nginx/crawlab.conf /etc/nginx/conf.d
 # working directory
 WORKDIR /app/backend
 
-RUN /app/docker_before_nginx.sh
+#RUN /app/docker_before_nginx.sh
 RUN systemctl enable nginx.service
 
 #RUN mkdir -p /var/log/supervisor
