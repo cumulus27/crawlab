@@ -20,7 +20,7 @@ else
 fi
 
 # start nginx
-/usr/sbin/init
+#/usr/sbin/init
 #service nginx start
 #systemctl enable nginx.service
 /usr/sbin/nginx -s reload

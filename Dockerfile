@@ -47,6 +47,7 @@ RUN chmod 777 /tmp \
 	&& yum install -y curl git net-tools iputils-ping ntp ntpdate python3 python3-pip wget \
 	&& yum install -y nginx \
 	&& yum install -y initscripts \
+	&& yum install -y supervisor \
 	&& yum clean all \
 	&& ln -s /usr/bin/pip3 /usr/local/bin/pip \
 	&& ln -s /usr/bin/python3 /usr/local/bin/python
@@ -71,11 +72,13 @@ COPY --from=frontend-build /app/dist /app/dist
 
 # copy nginx config files
 COPY ./nginx/crawlab.conf /etc/nginx/conf.d
-#RUN /app/docker_init.sh
 RUN systemctl enable nginx.service
 
 # working directory
 WORKDIR /app/backend
+
+RUN mkdir -p /var/log/supervisor
+COPY supervisord.conf /etc/supervisord.conf
 
 #RUN /app/docker_init.sh
 
@@ -96,5 +99,6 @@ EXPOSE 8080
 EXPOSE 8000
 
 # start backend
-CMD ["/bin/bash", "/app/docker_init.sh"]
+#CMD ["/bin/bash", "/app/docker_init.sh"]
 #CMD ["/usr/sbin/init"]
+CMD ["/usr/bin/supervisord"]
