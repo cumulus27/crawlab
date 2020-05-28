@@ -72,6 +72,8 @@ COPY --from=frontend-build /app/dist /app/dist
 # copy nginx config files
 COPY ./nginx/crawlab.conf /etc/nginx/conf.d
 
+RUN systemctl enable nginx.service
+
 # working directory
 WORKDIR /app/backend
 
