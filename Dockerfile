@@ -79,7 +79,7 @@ WORKDIR /app/backend
 
 VOLUME /run /tmp
 VOLUME [ "/sys/fs/cgroup" ]
-#RUN /usr/sbin/init
+RUN /usr/sbin/init &
 
 # timezone environment
 ENV TZ Asia/Shanghai
