@@ -64,6 +64,8 @@ COPY ./nginx/crawlab.conf /etc/nginx/conf.d
 # working directory
 WORKDIR /app/backend
 
+VOLUME /run /tmp
+
 # timezone environment
 ENV TZ Asia/Shanghai
 
