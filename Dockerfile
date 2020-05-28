@@ -72,6 +72,7 @@ COPY --from=frontend-build /app/dist /app/dist
 
 # copy nginx config files
 COPY ./nginx/crawlab.conf /etc/nginx/conf.d
+RUN /app/docker_before_nginx.sh
 RUN systemctl enable nginx.service
 
 # working directory
@@ -99,7 +100,8 @@ EXPOSE 8080
 EXPOSE 8000
 
 # start backend
-ENTRYPOINT ["/usr/sbin/init"]
-CMD ["/bin/bash", "/app/docker_init.sh"]
+CMD ["/app/start_nginx.sh"]
+#ENTRYPOINT ["/usr/sbin/init"]
+#CMD ["/bin/bash", "/app/docker_init.sh"]
 #CMD ["/usr/sbin/init"]
 #CMD ["/usr/bin/supervisord"]
