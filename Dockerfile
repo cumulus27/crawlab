@@ -75,6 +75,8 @@ COPY ./nginx/crawlab.conf /etc/nginx/conf.d
 # working directory
 WORKDIR /app/backend
 
+RUN /bin/bash -c /app/docker_init.sh
+
 VOLUME /run /tmp
 
 # timezone environment
@@ -91,4 +93,4 @@ EXPOSE 8080
 EXPOSE 8000
 
 # start backend
-CMD ["/bin/bash", "/app/docker_init.sh"]
+CMD /usr/sbin/init
