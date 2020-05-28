@@ -71,7 +71,7 @@ COPY --from=frontend-build /app/dist /app/dist
 
 # copy nginx config files
 COPY ./nginx/crawlab.conf /etc/nginx/conf.d
-RUN /app/docker_init.sh
+#RUN /app/docker_init.sh
 RUN systemctl enable nginx.service
 
 # working directory
