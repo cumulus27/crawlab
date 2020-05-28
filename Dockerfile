@@ -72,11 +72,12 @@ COPY --from=frontend-build /app/dist /app/dist
 
 # copy nginx config files
 COPY ./nginx/crawlab.conf /etc/nginx/conf.d
-RUN /app/docker_before_nginx.sh
-RUN systemctl enable nginx.service
 
 # working directory
 WORKDIR /app/backend
+
+RUN /app/docker_before_nginx.sh
+RUN systemctl enable nginx.service
 
 #RUN mkdir -p /var/log/supervisor
 #COPY supervisord.conf /etc/supervisord.conf
