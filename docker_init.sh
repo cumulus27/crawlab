@@ -20,10 +20,10 @@ else
 fi
 
 # start nginx
-init
+#init
 #service nginx start
 #systemctl enable nginx.service
-/usr/sbin/nginx -s reload
+#/usr/sbin/nginx -s reload
 
 # install languages
 if [ "${CRAWLAB_SERVER_LANG_NODE}" = "Y" ] || [ "${CRAWLAB_SERVER_LANG_JAVA}" = "Y" ];
