@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Start nginx
+bash /app/start_nginx.sh
+
 # replace default api path to new one
 if [ "${CRAWLAB_API_ADDRESS}" = "" ]; 
 then
