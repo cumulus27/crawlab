@@ -20,7 +20,6 @@ else
 fi
 
 # start nginx
-/usr/sbin/init
 service nginx start
 
 # install languages
