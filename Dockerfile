@@ -75,7 +75,7 @@ COPY ./nginx/crawlab.conf /etc/nginx/conf.d
 # working directory
 WORKDIR /app/backend
 
-RUN /app/docker_init.sh
+#RUN /app/docker_init.sh
 
 VOLUME /run /tmp
 
@@ -93,4 +93,5 @@ EXPOSE 8080
 EXPOSE 8000
 
 # start backend
-CMD /usr/sbin/init
+CMD ["/bin/bash", "/app/docker_init.sh"]
+#CMD /usr/sbin/init
