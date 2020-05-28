@@ -78,6 +78,8 @@ WORKDIR /app/backend
 #RUN /app/docker_init.sh
 
 VOLUME /run /tmp
+VOLUME [ "/sys/fs/cgroup" ]
+RUN /usr/sbin/init
 
 # timezone environment
 ENV TZ Asia/Shanghai
