@@ -46,7 +46,7 @@ RUN chmod 777 /tmp \
 	&& yum install -y epel-release \
 	&& yum install -y curl git net-tools iputils-ping ntp ntpdate python3 python3-pip wget \
 	&& yum install -y nginx \
-	&& yum install -y initscripts \
+#	&& yum install -y initscripts \
 #	&& yum install -y supervisor \
 	&& yum clean all \
 	&& ln -s /usr/bin/pip3 /usr/local/bin/pip \
