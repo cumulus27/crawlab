@@ -46,8 +46,6 @@ RUN chmod 777 /tmp \
 	&& yum install -y epel-release \
 	&& yum install -y curl git net-tools iputils-ping ntp ntpdate python3 python3-pip wget \
 	&& yum install -y nginx \
-#	&& yum install -y initscripts \
-#	&& yum install -y supervisor \
 	&& yum clean all \
 	&& ln -s /usr/bin/pip3 /usr/local/bin/pip \
 	&& ln -s /usr/bin/python3 /usr/local/bin/python
@@ -79,11 +77,7 @@ WORKDIR /app/backend
 RUN /app/docker_pre_init.sh
 RUN systemctl enable nginx.service
 
-#RUN mkdir -p /var/log/supervisor
-#COPY supervisord.conf /etc/supervisord.conf
-
-#RUN /app/docker_init.sh
-
+# mount volume
 VOLUME /run /tmp
 VOLUME [ "/sys/fs/cgroup" ]
 
@@ -104,5 +98,3 @@ EXPOSE 8000
 CMD ["/app/docker_start.sh"]
 #ENTRYPOINT ["/usr/sbin/init"]
 #CMD ["/bin/bash", "/app/docker_init.sh"]
-#CMD ["/usr/sbin/init"]
-#CMD ["/usr/bin/supervisord"]
